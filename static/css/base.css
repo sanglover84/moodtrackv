@@ -1,0 +1,40 @@
+header h1 a{
+    color: red;
+}
+
+header {
+    color: blue;
+}
+
+a{
+    color: red;
+}
+
+.moodimage{
+    height: 200px;
+    width: auto;
+}
+
+.energyimage{
+    height: 100px;
+    width: auto;
+}
+.mood{
+    height: 50px;
+    width: auto;
+}
+
+.grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+
