@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid mt-3">
+ <div class="row">
+    
+    
+{% for medspost in object_list %}
+<div class="col-sm-4">
+    <div class="card m-2">
+        <div class="card-header">
+    <h2><A href="{{ medspost.get_absolute_url }}">{{ medspost.medname }} | {{ medspost.generic }}</A></h2>
+    </div><!-- end card header -->
+     <div class="card-body">
+    <p><b>Total dose:</b> {{ medspost.totaldose }} mg</p>
+    <p>
+        <b>Morning: </b> {{ medspost.dose1 }}mg <br><b>Afternoon:</b> {{ medspost.dose2 }}mg  <br><b>Night:</b> {{ medspost.dose3 }}mg
+
+</p>
+<p><b>Taken: </b> {{ medspost.frequency }}</p>
+<p><b>Form:</b> {{ medspost.type }}</p>
+
+</div><!-- end card body-->
+</div><!-- END CARD -->
+</div> <!-- end col-->
+{% endfor %}
+</div><!-- end row -->
+</div> <!-- end container-->
+{% endblock content %}

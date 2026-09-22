@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid p-5 text-center">
+
+<div class="post-entry">
+    <h2>{{ post.mood }} | {{ post.feelings }} on {{ post.date }} </h2>
+    <div id="images">
+                {% load static %}
+                {% if post.mood >= 10 %}
+                 <img src="{% static 'images/Ten.png' %}" class="moodimage m-3">
+                {% elif post.mood == 9 %}
+                <img src="{% static 'images/Nine.png' %}" class="moodimage m-3">
+                {% elif post.mood == 8 %}
+                <img src="{% static 'images/Eight.png' %}" class="moodimage m-3">
+                {% elif post.mood == 7 %}
+                <img src="{% static 'images/Seven.png' %}" class="moodimage m-3">
+                {% elif post.mood == 6 %}
+                <img src="{% static 'images/Six.png' %}" class="moodimage m-3">
+                {% elif post.mood == 5 %}
+                <img src="{% static 'images/Five.png' %}" class="moodimage m-3">
+                {% elif post.mood == 4 %}
+                <img src="{% static 'images/Four.png' %}" class="moodimage m-3">
+                {% elif post.mood == 3 %}
+                <img src="{% static 'images/Three.png' %}" class="moodimage m-3">
+                {% elif post.mood == 2 %}
+                <img src="{% static 'images/Two.png' %}" class="moodimage m-3">
+                {% elif post.mood == 1 %}
+                <img src="{% static 'images/One.png' %}" class="moodimage m-3">
+                {% elif post.mood == 0 %}
+                <img src="{% static 'images/Zero.png' %}" class="moodimage m-3">
+                {% endif %}
+            </div>
+            <P>
+                    {% if post.energy >= 3 %}
+                 <img src="{% static 'images/e3.png' %}" class="m-3">
+                {% elif post.energy == 2 %}
+                <img src="{% static 'images/e2.png' %}" class="m-3">
+                {% elif post.energy == 1 %}
+                <img src="{% static 'images/e1.png' %}" class="m-3">
+                {% elif post.energy == 0 %}
+                <img src="{% static 'images/e0.png' %}" class="m-3">
+                
+                {% endif %}
+            </P>
+            <p>{{ post.body }}</p>
+            <p><a href="{% url 'post_edit' post.pk %}">Edit Post</a> |
+            <a href="{% url 'post_delete' post.pk %}">Delete Post</a></p>
+</div>
+</div>
+{% endblock content %}

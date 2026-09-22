@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid p-5 text-center">
+
+<div class="row">
+
+    <h2>{{ medspost.medname }} | {{ medspost.generic }}</h2>
+</div><!-- end card header-->
+ 
+    <p><b>Total dose:</b> {{ medspost.totaldose }} mg</p>
+    <p>
+        <b>Morning: </b> {{ medspost.dose1 }}mg <br><b>Afternoon:</b> {{ medspost.dose2 }}mg  <br><b>Night:</b> {{ medspost.dose3 }}mg
+
+</p>
+<p><b>Taken: </b> {{ medspost.frequency }}</p>
+<p><b>Form:</b> {{ medspost.type }}</p>
+<p>
+    <b>Used for: </b> {{ medspost.whatfor }}
+</p>
+<p>
+    <b>Side effects: </b> {{ medspost.sideeffects }}
+</p>
+
+<p>
+    <a href="{% url 'meds_edit' medspost.pk %}">Edit Medication</a> | 
+    <a href="{% url 'meds_delete' medspost.pk %}">Delete Medication</a>
+</p>
+
+
+</div><!-- end row -->
+
+</div>
+{% endblock content %}

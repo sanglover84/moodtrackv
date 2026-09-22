@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid p-5 text-center">
+<h2>{{ symptom.datetime }}</h2> 
+<p>
+    {{ symptom.notes }}
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Symptom</th>
+            <th>Severity</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            Anxiety
+        </td>
+        <td>{{ symptom.Anxiety }}</td>
+    </tr>
+      <tr><td>Depression</td>  <td>{{ symptom.Depression }}</td></tr>
+            <tr><td>Mania</td>  <td>{{ symptom.Mania }}</td></tr>
+            <tr><td>Parnoia</td>  <td>{{ symptom.Paranoia }}</td></tr>
+            <tr><td>Ideas of Reference</td>  <td>{{ symptom.IdeasOfReference }}</td></tr>
+            <tr><td>Hallucinations</td>  <td>{{ symptom.Hallucinations }}</td></tr>
+           <tr> <td>Fatigue</td>  <td>{{ symptom.Fatigue }}</td></tr>
+            <tr><td>Insomnia</td>  <td>{{ symptom.Insomnia }}</td> </tr> 
+            <tr><td>Restlessness</td>  <td>{{ symptom.Restlessness }}</td></tr>
+            <tr><td>Agitation</td>  <td>{{ symptom.Agitation }}</td></tr>
+            <tr><td>Wrist Pain</td>  <td>{{ symptom.WristPain }}</td></tr>
+           <tr> <td>Shoulder Pain</td>  <td>{{ symptom.ShoulderPain }}</td></tr>
+           <tr><td><a href="{% url 'symptoms_edit' symptom.pk %}">Edit</a></td>
+        <td><a href="{% url 'symptoms_delete' symptom.pk %}">Delete</a></td></tr>
+</table>
+</div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid p-5 text-center">
+
+<h1>Sleep</h1>
+<table class="table table-bordered table-hover">
+<tr><td>Date</td>
+<td>Hours Sleep</td>
+<td>Notes</td></tr>
+<tbody>
+        <!-- Loop through the database entries passed from the view -->
+        {% for sleep in sleep_list %}
+        <tr>
+            <td><a href="{{ sleep.get_absolute_url }}">{{ sleep.datetime }}</a></td>
+            <td>{{ sleep.hourssleep }}</td>
+            <td>{{ sleep.notes }}</td>
+           
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No entries found in the database.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    </div>
+{% endblock content %}

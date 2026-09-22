@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mood Tracker v2</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>Mood Tracker v2</h1>
+  <p>Medication management, symptom tracker and more.</p> 
+</div>
+
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'home' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'meds_page' %}">Med List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'symptoms' %}">Symptoms</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'sleep' %}">Sleep</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'chart' %}">Charts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'sleepchart' %}">Sleep Charts</a>
+    </li>
+<li class="nav-item">
+      <a class="nav-link" href="{% url 'post_new' %}">+ Mood Entry</a>
+    </li>
+<li class="nav-item">
+      <a class="nav-link" href="{% url 'meds_new' %}">+ Medication</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'symptoms_new' %}">+ Symptoms</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{% url 'sleep_new' %}">+ Sleep</a>
+    </li>
+  </ul>
+<!--
+        <ul>
+            <li><A href="{% url 'home' %}">Home</A></li>
+            <li><a href="{% url 'meds_page' %}">Med List</a></li>
+            <li><a href="{% url 'symptoms' %}">Symptoms</a></li>
+            <li><a href="{% url 'chart' %}">Charts</a></li>
+            <li><a href="{% url 'post_new' %}">Add Mood Entry</a></li>
+            <li><a href="{% url 'meds_new' %}">Add a Med</a></li>
+        </ul>
+        -->
+    
+
+    <main>
+        <!-- This is a placeholder for child templates -->
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+         <div class="grid-container">
+
+    {% for post in post_list %}
+            <div class="card text-center">
+
+            <h4><a href="{% url 'post_detail' post.pk %}">{{ post.feelings }}</a></h4>
+            <div id="images">
+                
+                {% load static %}
+                {% if post.mood >= 10 %}
+                 <img src="{% static 'images/Ten.png' %}" class="moodimage m-3">
+                {% elif post.mood == 9 %}
+                <img src="{% static 'images/Nine.png' %}" class="moodimage m-3">
+                {% elif post.mood == 8 %}
+                <img src="{% static 'images/Eight.png' %}" class="moodimage m-3">
+                {% elif post.mood == 7 %}
+                <img src="{% static 'images/Seven.png' %}" class="moodimage m-3">
+                {% elif post.mood == 6 %}
+                <img src="{% static 'images/Six.png' %}" class="moodimage m-3">
+                {% elif post.mood == 5 %}
+                <img src="{% static 'images/Five.png' %}" class="moodimage m-3">
+                {% elif post.mood == 4 %}
+                <img src="{% static 'images/Four.png' %}" class="moodimage m-3">
+                {% elif post.mood == 3 %}
+                <img src="{% static 'images/Three.png' %}" class="moodimage m-3">
+                {% elif post.mood == 2 %}
+                <img src="{% static 'images/Two.png' %}" class="moodimage m-3">
+                {% elif post.mood == 1 %}
+                <img src="{% static 'images/One.png' %}" class="moodimage m-3">
+                {% elif post.mood == 0 %}
+                <img src="{% static 'images/Zero.png' %}" class="moodimage m-3">
+                {% endif %}
+            </div>
+            <p>{{ post.date }}</p>
+        </div>
+    {% empty %}
+        <p>No posts found.</p>
+    {% endfor %}
+                </div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <div style="width: 80%; margin: auto;">
+        <canvas id="sleepChart"></canvas>
+    </div>
+
+    <!-- 1. Securely convert Django lists into clean JSON scripts -->
+{{ dates|json_script:"chart-dates" }}
+{{ hourssleep|json_script:"chart-sleep" }}
+
+<script> 
+// 2. Safely parse the JSON data into real JS arrays
+const chartDates = JSON.parse(document.getElementById('chart-dates').textContent); 
+const chartSleep = JSON.parse(document.getElementById('chart-sleep').textContent); 
+
+// 3. Optional: Reverse arrays so chronological order reads left-to-right
+const finalDates = chartDates.reverse();
+const finalSleep = chartSleep.reverse();
+
+const ctx = document.getElementById('sleepChart').getContext('2d'); 
+
+new Chart(ctx, { 
+    type: 'bar', // Changed from 'line' to 'bar'
+    data: { 
+        labels: finalDates, 
+        datasets: [{ 
+            label: 'Hours of Sleep', 
+            data: finalSleep, 
+            backgroundColor: 'rgba(75, 192, 192, 0.6)', // Semi-transparent fill for bars
+            borderColor: 'rgb(75, 192, 192)', 
+            borderWidth: 1
+        }] 
+    }, 
+    options: { 
+        responsive: true, 
+        scales: { 
+            y: { 
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Hours'
+                }
+            }
+        } 
+    } 
+}); 
+</script> 
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid p-5 text-center">
+<h1>New Entry</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Save">
+</form>
+<table class="table">
+    
+<tr>
+    <td>
+                        {% load static %}
+   <img src="{% static 'images/Zero.png' %}" class="moodimage"></td>    
+
+   
+    <td>
+                        {% load static %}
+ <img src="{% static 'images/One.png' %}" class="moodimage"></td>    
+
+ <td><img src="{% static 'images/Two.png' %}" class="moodimage"></td>    
+
+ <td> <img src="{% static 'images/Three.png' %}" class="moodimage"></td>    
+
+<td>  <img src="{% static 'images/Four.png' %}" class="moodimage"></td>    
+
+ <td> <img src="{% static 'images/Five.png' %}" class="moodimage"></td>  
+ </tr><tr>
+    <tr>
+    <td>
+                       
+   Severely Depressed: Suicidal thoughts, no way out, no movement, everythingis bleak and it will always be like this.</td>    
+
+   
+    <td>
+                      
+ Severely Depressed: Feelings of hopelessness and guilt, thoughts of suicide, little movement, impossible to do everything.</td>    
+
+ <td>Moderately Depressed: Slow thinking, no appetite, need to be alone, sleep too much or not enough, some comofort in routine.</td>    
+
+ <td> Mildly Depressed: Panic and anxiety, concentration difficult, memory poor.</td>    
+
+<td>  Low but Balanced: Slight withdrawal from social situations, concentration less than usual, slight agitation.</td>    
+
+ <td> Balanced: Mood in balance, no symptoms of depression or mania. Life is going well and outlook is good.</td>  
+ </tr><tr>
+
+ <td> <img src="{% static 'images/Six.png' %}" class="moodimage"></td>    
+
+   <td> <img src="{% static 'images/Seven.png' %}" class="moodimage"></td>     
+
+     <td> <img src="{% static 'images/Eight.png' %}" class="moodimage"></td>    
+
+       <td> <img src="{% static 'images/Nine.png' %}" class="moodimage"></td>   
+
+          <td> <img src="{% static 'images/Ten.png' %}" class="moodimage"></td>   
+
+<td>Energy:
+    <ul>
+        <li>0: No energy</li>
+        <li>1: Low energy</li>
+        <li>2: Good energy</li>
+        <li>3: High energy</li>
+    </ul>
+</td>
+</tr>
+<tr>
+    <td>
+                       
+   High but Balanced: Self esteem good, optimistic, social and articulate, good decisions and work is getting done.
+   
+    <td>
+                      
+Mild Hypomania: Very productive, everything to excess, charming and talkative.
+    </td>
+ <td>Moderate hypomania: Inflated self esteem, rapid thoughts and speech, counterproductive</td>    
+
+ <td> Mania: Losing touch with reality, incoherent, no sleep, paranoid and vindicative, reckless behaviour.</td>    
+
+<td>  Severe Mania: Total loss of judgement, exorbiitant spending, delusions and hallucinations.</td>    
+
+ <td> 
+
+ </td>  
+ </tr><tr>
+
+</table>
+
+</div>
+{% endblock content %}

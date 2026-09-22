@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid p-5 text-center">
+
+<h2>Sleep Details</h2>
+<table class="table table-bordered table-hover">
+
+
+        <!-- Loop through the database entries passed from the view -->
+      
+        <tr>
+            <td>Date: </td><td>{{ sleep.datetime }}</td></tr>
+            <tr><td>Hours Slept:</td><td>{{ sleep.hourssleep }}</td></tr>
+            <tr><td>Notes: <td>{{ sleep.notes }}</td></tr>
+            <tr><td><a href="{% url 'sleep_edit' sleep.pk %}">Edit</a></td>
+            <td><a href="{% url 'sleep_delete' sleep.pk %}">Delete</a></td></tr>
+           
+       
+       
+
+    </table>
+</div>
+{% endblock content %}

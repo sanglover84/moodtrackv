@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Anxiety</th>
+            <th>Depression</th>
+            <th>Mania</th>
+            <th>Parnoia</th>
+            <th>Ideas of Reference</th>
+            <th>Hallucinations</th>
+            <th>Fatigue</th>
+            <th>Insomnia</th>
+            <th>Restlessness</th>
+            <th>Agitation</th>
+            <th>Wrist Pain</th>
+            <th>Shoulder Pain</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop through the database entries passed from the view -->
+        {% for symptom in symptom_list %}
+        <tr>
+            <td><a href="{{ symptom.get_absolute_url }}">{{ symptom.datetime }}</a></td>
+            <td>{{ symptom.Anxiety }}</td>
+            <td>{{ symptom.Depression }}</td>
+            <td>{{ symptom.Mania }}</td>
+            <td>{{ symptom.Paranoia }}</td>
+            <td>{{ symptom.IdeasOfReference }}</td>
+            <td>{{ symptom.Hallucinations }}</td>
+            <td>{{ symptom.Fatigue }}</td>
+            <td>{{ symptom.Insomnia }}</td>
+            <td>{{ symptom.Restlessness }}</td>
+            <td>{{ symptom.Agitation }}</td>
+            <td>{{ symptom.WristPain }}</td>
+            <td>{{ symptom.ShoulderPain }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No entries found in the database.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
